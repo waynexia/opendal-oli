@@ -76,7 +76,7 @@ impl ConfigAddCmd {
             }
             Err(err) => return Err(err.into()),
         };
-        let schema = profile_schema(&selected_schema)
+        let schema = profile_schema(selected_schema)
             .ok_or_else(|| anyhow!("unknown schema selected: {selected_schema}"))?;
 
         let profile_name = match prompt_required_text("Profile name")? {
